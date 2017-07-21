@@ -88,7 +88,7 @@ $(document).ready(function(){
         },
 
         onTabShow: function(tab, navigation, index) {
-            var $total = navigation.find('li').length;
+            var $total = navigation.children().length;
             var $current = index+1;
 
             var $wizard = navigation.closest('.wizard-card');
@@ -182,8 +182,9 @@ $(window).resize(function(){
     });
 });
 
+//make sure to include a "wizard-tabList" class to your unordered list
 function refreshAnimation($wizard, index){
-    total_steps = $wizard.find('li').length;
+    total_steps = $wizard.find('ul.wizard-tabList > li').length;
     move_distance = $wizard.width() / total_steps;
     step_width = move_distance;
     move_distance *= index;
